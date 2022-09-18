@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-
+"""defines a class Square"""
 
 class Square:
-    # to print a square
     def square(self, name):
-        # sets self to equal name and print square
+        """contains code to print square"""
         self.name = name
         print(f"{{}}")
+        """square is printed"""
