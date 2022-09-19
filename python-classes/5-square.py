@@ -44,6 +44,9 @@ class Square:
 
     def my_print(self):
         """
+        prints the size of the square with #
+        returns the width and length of the square
+        by the size passed
         """
         if self.__size == 0:
             print()
