@@ -4,6 +4,8 @@ checks if a & b are type of int or float
 if a or b equals a float, converts them to an int
 then returns value of a + b
 """
+
+
 def add_integer(a, b=98):
     """
     returns the value of a + b
