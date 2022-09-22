@@ -4,6 +4,7 @@ Module matrix_divided
 Divides each element of a matrix of numbers by a number
 """
 
+
 def matrix_divided(matrix, div):
     """
     Returns a new matrix (list of list)
@@ -21,9 +22,8 @@ def matrix_divided(matrix, div):
                 "matrix must be a matrix (list of lists) of integers/floats")
         for num in row:
             if type(num) is not int and type(num) is not float:
-                raise TypeError(
-                    "matrix must be a matrix (list of lists) of integers/floats"
-                )
+                raise TypeError("matrix must be a matrix (list of lists) " +
+                                "of integers/floats")
 
     row_length = []
     for row in matrix:
