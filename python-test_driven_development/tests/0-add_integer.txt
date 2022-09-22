@@ -1,0 +1,56 @@
+The ``0-add_integer`` task
+
+Defining ``add_integer(a, b=98)``
+
+
+Import function from module:
+       >>> add_integer = __import__('0-add_integer').add_integer
+
+Checking for Documentation:
+	 >>> module_doc = __import__("0-add_integer").__doc__
+	 >>> len(module_doc) > 1
+	 True
+
+	 >>> function_doc = __import__("0-add_integer").add_integer.__doc__
+	 >>> len(function_doc) > 1
+	 True
+
+Completing function tests:
+	 >>> add_integer(2, 3)
+	 5
+
+	 >>> add_integer(8, -2)
+	 6
+
+	 >>> add_integer(-4, -7)
+	 -11
+
+	 >>> add_integer(8, "Student")
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: b must be an integer
+
+	 >>> add_integer("Holberton", 3)
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: a must be an integer
+
+	 >>> add_integer([1, 1, 1], 3)
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: a must be an integer
+
+	 >>> add_integer(8, [1, 1, 1])
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: b must be an integer
+
+	 >>> add_integer(8, None)
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: b must be an integer
+
+	 >>> add_integer(None, 7)
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: a must be an integer
