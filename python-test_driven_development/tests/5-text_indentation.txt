@@ -1,0 +1,66 @@
+=================================
+The ``5-text_indentation`` module
+=================================
+
+Using ``text_indentation``
+--------------------------
+
+Importing the function from module:
+      >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Check for Documentation:
+      >>> module_doc = __import__("5-text_indentation").__doc__
+      >>> len(module_doc) > 1
+      True
+
+      >>> function_doc = __import__("5-text_indentation").text_indentation.__doc__
+      >>> len(function_doc) > 1
+      True
+
+Completing Function Tests:
+	   >>> text_indentation("Hi, I'm George, what's your name? I'm Frank: How are you? Good")
+	   Hi, I'm George, what's your name?
+	   <BLANKLINE>
+	   I'm Frank:
+	   <BLANKLINE>
+	   How are you?
+	   <BLANKLINE>
+	   Good
+
+	   >>> text_indentation("Hi, I'm George, what's your name? I'm Frank: How are you? Good.")
+	   Hi, I'm George, what's your name?
+	   <BLANKLINE>
+	   I'm Frank:
+	   <BLANKLINE>
+	   How are you?
+	   <BLANKLINE>
+	   Good
+	   <BLANKLINE>
+
+	   >>> text_indentation("Hi.     I'm George, what's your name? I'm Frank: How are you? Good")
+	   Hi.
+	   <BLANKLINE>
+	   I'm George, what's your name?
+	   <BLANKLINE>
+	   I'm Frank:
+	   <BLANKLINE>
+	   How are you?
+	   <BLANKLINE>
+	   Good
+
+	   >>> test_indentation(3)
+	   Traceback (most recent call last):
+      	   ...
+      	   TypeError: text must be a string
+
+	   >>> test_indentation(None)
+	   Traceback (most recent call last):
+      	   ...
+      	   TypeError: text must be a string
+
+	   >>> text_indentation(" \n Hello Frank. What're you doing?")
+      	   <BLANKLINE>
+      	   Hello Frank.
+      	   <BLANKLINE>
+      	   What're you doing?
+      	   <BLANKLINE>
