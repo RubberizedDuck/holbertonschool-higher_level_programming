@@ -56,6 +56,9 @@ Completing Tests:
 	   TypeError: year must be an integer
 
 	   >>> bg.integer_validator("year", True)
+	   Traceback (most recent call last):
+	   ...
+	   TypeError: year must be an integer
 
 	   >>> bg.integer_validator("year", None)
 	   Traceback (most recent call last):
