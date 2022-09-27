@@ -44,3 +44,20 @@ Completing Tests:
 	   Traceback (most recent call last):
 	   ...
 	   TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+	   >>> bg.integer_validator("year", (4,))
+	   Traceback (most recent call last):
+	   ...
+	   TypeError: year must be an integer
+
+	   >>> bg.integer_validator("year", [2])
+	   Traceback (most recent call last):
+	   ...
+	   TypeError: year must be an integer
+
+	   >>> bg.integer_validator("year", True)
+
+	   >>> bg.integer_validator("year", None)
+	   Traceback (most recent call last):
+	   ...
+	   TypeError: year must be an integer
