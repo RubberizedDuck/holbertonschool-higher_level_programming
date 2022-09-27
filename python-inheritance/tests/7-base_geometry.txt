@@ -12,27 +12,27 @@ Completing Tests:
 	   >>> bg = BaseGeometry()
 
 	   >>> bg.area()
-	   Traceback (most recent call last)
+	   Traceback (most recent call last):
 	   ...
 	   Exception: area() is not implemented
 
 	   >>> bg.integer_validator("name", "Barry")
-	   Traceback (most recent call last)
+	   Traceback (most recent call last):
 	   ...
 	   TypeError: name must be an integer
 
 	   >>> bg.integer_validator("year", -3)
-	   Traceback (most recent call last)
+	   Traceback (most recent call last):
 	   ...
 	   ValueError: year must be greater than 0
 
 	   >>> bg.integer_validator("kms", 0)
-	   Traceback (most recent call last)
+	   Traceback (most recent call last):
 	   ...
 	   ValueError: kms must be greater than 0
 
 	   >>> bg.integer_validator("year", "5")
-	   Traceback (most recent call last)
+	   Traceback (most recent call last):
 	   ...
 	   TypeError: year must be an integer
 
@@ -41,6 +41,6 @@ Completing Tests:
 	   >>> bg.integer_validator("year", 2022)
 
 	   >>> bg.integer_validator()
-	   Traceback (most recent call last)
+	   Traceback (most recent call last):
 	   ...
 	   TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
