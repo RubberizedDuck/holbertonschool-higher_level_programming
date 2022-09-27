@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-This module checks if the object is
-from the same class
+This module checks if the object has
+the same class
 """
 
 
