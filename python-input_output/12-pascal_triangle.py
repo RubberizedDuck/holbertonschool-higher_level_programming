@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-
-
+"""
+This module is the pascal challenge
+"""
 
 
 def pascal_triangle(n):
+    """ function to return a pascal triangle """
     pascal_list = []
     if n <= 0:
         return pascal_list
