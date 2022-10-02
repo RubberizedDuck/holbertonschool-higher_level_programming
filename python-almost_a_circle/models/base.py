@@ -3,6 +3,7 @@
 This module contains the Base class
 """
 
+
 class Base:
     """
     Class Documentation will go here. Will add later
