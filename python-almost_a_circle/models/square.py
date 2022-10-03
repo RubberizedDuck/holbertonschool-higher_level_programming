@@ -23,3 +23,12 @@ class Square(Rectangle):
         method_string += f"{self.x}/{self.y} - "
         method_string += f"{self.size}"
         return method_string
+
+    @property
+    def size(self):
+        return self.width
+
+    @size.setter
+    def size(self, size):
+        self.width = size
+        self.height = size
