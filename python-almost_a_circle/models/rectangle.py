@@ -22,8 +22,15 @@ class Rectangle(Base):
         return self.width * self.height
 
     def display(self):
-        """ prints size of rectangle """
+        """
+        prints size of rectangle
+        including the x and y axis
+        """
+        for y_axis in range(self.y):
+            print()
         for row in range(self.height):
+            for x_axis in range(self.x):
+                print(" ", end="")
             for column in range(self.width):
                 print("#", end="")
             print()
