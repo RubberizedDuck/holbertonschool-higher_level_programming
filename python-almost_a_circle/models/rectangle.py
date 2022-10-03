@@ -35,6 +35,22 @@ class Rectangle(Base):
                 print("#", end="")
             print()
 
+    def update(self, *args):
+        """
+        updates variables for passed arguments
+        """
+        for argv, arg in enumerate(args):
+            if argv == 0:
+                self.id = arg
+            if argv == 1:
+                self.width = arg
+            if argv == 2:
+                self.height = arg
+            if argv == 3:
+                self.x = arg
+            if argv == 4:
+                self.y = arg
+
     def __str__(self):
         """ changing the string method """
         method_string = f"[Rectangle] ({self.id}) "
