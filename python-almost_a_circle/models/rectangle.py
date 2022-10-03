@@ -21,6 +21,12 @@ class Rectangle(Base):
         """ returns the area of the rectangle """
         return self.width * self.height
 
+    def display(self):
+        for row in range(self.height):
+            for column in range(self.width):
+                print("#", end="")
+            print()
+
     @property
     def width(self):
         return self.__width
