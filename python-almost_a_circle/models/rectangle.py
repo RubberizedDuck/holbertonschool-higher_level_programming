@@ -28,6 +28,13 @@ class Rectangle(Base):
                 print("#", end="")
             print()
 
+    def __str__(self):
+        """ changing the string method """
+        method_string = f"[Rectangle] ({self.id}) "
+        method_string += f"{self.x}/{self.y} - "
+        method_string += f"{self.width}/{self.height}"
+        return method_string
+
     @property
     def width(self):
         return self.__width
