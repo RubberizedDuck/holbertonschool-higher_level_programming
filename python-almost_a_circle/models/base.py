@@ -42,3 +42,10 @@ class Base:
                 file_list.append(item.to_dictionary())
         with open(filename, 'w', encoding="UTF-8") as f:
             f.write(cls.to_json_string(file_list))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ creates an instance of the subclass """
+        dummy_class = cls(1, 1)
+        dummy_class.update(**dictionary)
+        return dummy_class
