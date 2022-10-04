@@ -4,8 +4,9 @@
 
 import unittest
 import pycodestyle
-from models.rectangle import Rectangle
+from models import rectangle
 from models.base import Base
+Rectangle = rectangle.Rectangle
 
 
 class TestRectangleDocs(unittest.TestCase):
