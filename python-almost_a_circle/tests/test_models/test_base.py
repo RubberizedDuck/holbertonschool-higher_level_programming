@@ -33,6 +33,7 @@ class TestBaseDocs(unittest.TestCase):
         self.assertEqual(result.total_errors, 1,
                          "Found code style errors (and warnings).")
 
+
 class TestBase(unittest.TestCase):
     """ Testing for class Base """
 
