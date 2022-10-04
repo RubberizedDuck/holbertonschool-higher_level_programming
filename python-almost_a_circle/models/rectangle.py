@@ -120,3 +120,11 @@ class Rectangle(Base):
         if attribute == "x" or attribute == "y":
             if value < 0:
                 raise ValueError(f"{attribute} must be >= 0")
+
+    def to_dictionary(self):
+        """ returns the dictionary rep of Rectangle """
+        return {'id': self.id,
+                'width': self.width,
+                'height': self.height,
+                'x': self.x,
+                'y': self.y}
