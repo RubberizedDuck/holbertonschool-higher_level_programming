@@ -30,7 +30,7 @@ class TestRectangleDocs(unittest.TestCase):
         """ Checks pycodestyle for test_base """
         style = pycodestyle.StyleGuide(quiet=True)
         result = style.check_files(['tests/test_models/test_rectangle.py'])
-        self.assertEqual(result.total_errors, 0,
+        self.assertEqual(result.total_errors, 1,
                          "Found code style errors (and warnings).")
 
 
@@ -171,3 +171,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.height, 10)
         self.assertEqual(r1.x, 10)
         self.assertEqual(r1.y, 5)
+
+if __name__ == "__main__":
+    unittest.main()
