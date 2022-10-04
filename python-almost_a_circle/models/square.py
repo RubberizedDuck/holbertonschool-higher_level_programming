@@ -55,3 +55,11 @@ class Square(Rectangle):
                     self.x = value
                 if key == "y":
                     self.y = value
+
+    def to_dictionary(self):
+        """ Returns the dict rep of Square """
+        square_dict = super().to_dictionary()
+        del square_dict['height']
+        new_keys = {"id": "id", "width": "size", "x": "x", "y": "y"}
+        return (dict([(new_keys.get(key), value) for key, value
+                      in square_dict.items()]))
