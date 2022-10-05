@@ -197,3 +197,16 @@ class TestRectangle(unittest.TestCase):
         self.r1.y = 7
         self.assertEqual(str(self.r1), "[Rectangle] (1) 5/7 - 1/2")
         self.assertEqual(str(self.r3), "[Rectangle] (47) 2/2 - 1/3")
+
+    def test_dictionary(self):
+        """ """
+        d1 = self.r1.to_dictionary()
+        self.assertEqual(
+            {"id": 1, "width": 1, "height": 2, "x": 0, "y": 0}, d1)
+        self.assertTrue(type(d1) is dict)
+        self.r1.x = 2
+        self.r1.y = 3
+        d1 = self.r1.to_dictionary()
+        self.assertEqual(
+            {"id": 1, "width": 1, "height": 2, "x": 2, "y": 3}, d1)
+        self.assertTrue(type(d1) is dict)
