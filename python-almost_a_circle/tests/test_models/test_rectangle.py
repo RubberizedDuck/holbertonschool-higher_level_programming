@@ -190,3 +190,10 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.r1.height, 10)
         self.assertEqual(self.r1.x, 10)
         self.assertEqual(self.r1.y, 5)
+
+    def test_str(self):
+        """ tests the __str__ method """
+        self.r1.x = 5
+        self.r1.y = 7
+        self.assertEqual(str(self.r1), "[Rectangle] (1) 5/7 - 1/2")
+        self.assertEqual(str(self.r3), "[Rectangle] (47) 2/2 - 1/3")
