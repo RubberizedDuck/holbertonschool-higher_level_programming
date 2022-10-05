@@ -11,6 +11,7 @@ class Rectangle(Base):
     Class docs go here. Will add later
     """
     def __init__(self, width, height, x=0, y=0, id=None):
+        """ instansiation of class """
         self.width = width
         self.height = height
         self.x = x
@@ -73,37 +74,45 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """ getter of width """
         return self.__width
 
     @width.setter
     def width(self, value):
+        """ setter of width """
         self.validator("width", value)
         self.__width = value
 
     @property
     def height(self):
+        """ getter of height """
         return self.__height
 
     @height.setter
     def height(self, value):
+        """ setter of height """
         self.validator("height", value)
         self.__height = value
 
     @property
     def x(self):
+        """ getter of x """
         return self.__x
 
     @x.setter
     def x(self, value):
+        """ setter of x """
         self.validator("x", value)
         self.__x = value
 
     @property
     def y(self):
+        """ getter of y """
         return self.__y
 
     @y.setter
     def y(self, value):
+        """ setter of y """
         self.validator("y", value)
         self.__y = value
 
