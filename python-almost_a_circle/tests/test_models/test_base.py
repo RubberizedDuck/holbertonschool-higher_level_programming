@@ -5,15 +5,20 @@
 import unittest
 import pycodestyle
 import json
+import inspect
 from models.rectangle import Rectangle
 from models.square import Square
-from models import base
-Base = base.Base
-
+from models.base import Base
 
 
 class TestBaseDocs(unittest.TestCase):
     """ Testing class Base for documentation """
+
+    @classmethod
+    def setUpClass(cls):
+        """Set up for the doc tests"""
+        cls.base_funcs = inspect.getmembers(Base, inspect.isfunction)
+
     def test_base_docs(self):
         """ checking for docs """
         module_docs = "models.base".__doc__
@@ -21,6 +26,9 @@ class TestBaseDocs(unittest.TestCase):
 
         class_docs = Base.__doc__
         self.assertTrue(len(class_docs) > 1)
+
+        for func in self.base_funcs:
+            self.assertTrue(len(func[1].__doc__) >= 1)
 
     def test_pycode_class(self):
         """ Checks pycodestyle for base """
@@ -33,7 +41,7 @@ class TestBaseDocs(unittest.TestCase):
         """ Checks pycodestyle for test_base """
         style = pycodestyle.StyleGuide(quiet=True)
         result = style.check_files(['tests/test_models/test_base.py'])
-        self.assertEqual(result.total_errors, 1,
+        self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
 
