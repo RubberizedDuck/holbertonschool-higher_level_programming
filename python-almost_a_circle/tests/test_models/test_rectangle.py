@@ -74,9 +74,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.r1.id, 1)
         self.assertEqual(self.r2.id, 2)
 
-    def test_assign_id(self):
-        """ Testing setting function id """
-
     def test_width(self):
         """ Testing function width """
         self.assertEqual(self.r3.width, 1)
