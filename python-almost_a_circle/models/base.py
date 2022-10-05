@@ -64,6 +64,6 @@ class Base:
                 new_list = cls.from_json_string(f.read())
             for i, string in enumerate(new_list):
                 new_list[i] = cls.create(**new_list[i])
-        except:
+        except Exception:
             pass
         return new_list
