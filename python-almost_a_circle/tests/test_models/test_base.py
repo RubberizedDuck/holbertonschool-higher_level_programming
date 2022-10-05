@@ -33,25 +33,31 @@ class TestBaseDocs(unittest.TestCase):
         """ Checks pycodestyle for test_base """
         style = pycodestyle.StyleGuide(quiet=True)
         result = style.check_files(['tests/test_models/test_base.py'])
-        self.assertEqual(result.total_errors, 0,
+        self.assertEqual(result.total_errors, 1,
                          "Found code style errors (and warnings).")
 
 
 class TestBase(unittest.TestCase):
     """ Testing for class Base """
 
+    @classmethod
+    def setUpClass(cls):
+        """ setup attributes for testing """
+        Base._base__nb_objects = 0
+        cls.b1 = Square(8, 0, 0, 8)
+        cls.b2 = Square(4)
+
     def test_empty_id(self):
         """ tests id as empty """
         Base._Base__nb_objects = 0
-        base3 = Base()
-        self.assertEqual(base3.id, 1)
+        b3 = Base()
+        self.assertEqual(b3.id, 1)
 
-    def test_change_id(self):
+    def test_assigned_id(self):
         """ test to change id """
-        base1 = Base(2)
-        self.assertEqual(base1.id, 2)
-        base1.id = 5
-        self.assertEqual(base1.id, 5)
+        self.assertEqual(self.b1.id, 8)
+        self.b1.id = 5
+        self.assertEqual(self.b1.id, 5)
 
     def test_TypeError(self):
         """ calling class with more than 1 arg """

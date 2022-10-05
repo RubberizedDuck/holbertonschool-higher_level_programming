@@ -4,13 +4,19 @@
 
 import unittest
 import pycodestyle
-from models import rectangle
+import inspect
+from models.rectangle import Rectangle
 from models.base import Base
-Rectangle = rectangle.Rectangle
 
 
 class TestRectangleDocs(unittest.TestCase):
     """ Testing class Rectangle for documentation """
+
+    @classmethod
+    def setUpClass(cls):
+        """Set up for the doc tests"""
+        cls.rect_funcs = inspect.getmembers(Rectangle, inspect.isfunction)
+
     def test_base_docs(self):
         """ checking for docs """
         module_docs = "models.rectangle".__doc__
@@ -30,47 +36,64 @@ class TestRectangleDocs(unittest.TestCase):
         """ Checks pycodestyle for test_base """
         style = pycodestyle.StyleGuide(quiet=True)
         result = style.check_files(['tests/test_models/test_rectangle.py'])
-        self.assertEqual(result.total_errors, 1,
+        self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
+
+    def test_module_docstr(self):
+        """Tests for docstring"""
+        self.assertTrue(len(Rectangle.__doc__) >= 1)
+
+    def test_class_docstr(self):
+        """Tests for docstring"""
+        self.assertTrue(len(Rectangle.__doc__) >= 1)
+
+    def test_func_docstr(self):
+        """Tests for docstrings in all functions"""
+        for func in self.rect_funcs:
+            self.assertTrue(len(func[1].__doc__) >= 1)
 
 
 class TestRectangle(unittest.TestCase):
     """ Testing class Rectangle """
 
+    @classmethod
+    def setUpClass(cls):
+        """ setup the attributes for testing """
+        Base._Base__nb_objects = 0
+        cls.r1 = Rectangle(1, 2)
+        cls.r2 = Rectangle(3, 6)
+        cls.r3 = Rectangle(1, 3, 2, 2, 47)
+        cls.r4 = Rectangle(2, 2)
+
     def test_id(self):
         """ Testing function id """
-        r1 = Rectangle(1, 2)
-        self.assertEqual(r1.id, 6)
-        r2 = Rectangle(3, 4)
-        self.assertEqual(r2.id, 7)
+        self.assertEqual(self.r1.id, 1)
+        self.assertEqual(self.r2.id, 2)
+
+    def test_assign_id(self):
+        """ Testing setting function id """
 
     def test_width(self):
         """ Testing function width """
-        r3 = Rectangle(1, 2)
-        self.assertEqual(r3.width, 1)
-        r4 = Rectangle(3, 4)
-        self.assertEqual(r4.width, 3)
+        self.assertEqual(self.r3.width, 1)
+        self.assertEqual(self.r4.width, 2)
 
     def test_height(self):
         """ Testing function height """
-        r5 = Rectangle(1, 2)
-        self.assertEqual(r5.height, 2)
-        r6 = Rectangle(3, 4)
-        self.assertEqual(r6.height, 4)
+        self.assertEqual(self.r3.height, 3)
+        self.assertEqual(self.r4.height, 2)
 
     def test_x(self):
         """ Testing function x """
-        r7 = Rectangle(1, 2, 3)
-        self.assertEqual(r7.x, 3)
-        r8 = Rectangle(3, 4, 5, 6)
-        self.assertEqual(r8.x, 5)
+        self.assertEqual(self.r3.x, 2)
+        self.r3.x = 5
+        self.assertEqual(self.r3.x, 5)
 
     def test_x(self):
         """ Testing function y """
-        r9 = Rectangle(1, 2, 3)
-        self.assertEqual(r9.y, 0)
-        r10 = Rectangle(3, 4, 5, 6)
-        self.assertEqual(r10.y, 6)
+        self.assertEqual(self.r3.y, 2)
+        self.r3.y = 7
+        self.assertEqual(self.r3.y, 7)
 
     def test_mandatory_width(self):
         """ Tests that width is a mandatory argument """
@@ -136,10 +159,8 @@ class TestRectangle(unittest.TestCase):
 
     def test_area(self):
         """ Test area method """
-        r11 = Rectangle(5, 5)
-        self.assertEqual(r11.area(), 25)
-        r12 = Rectangle(3, 2)
-        self.assertEqual(r12.area(), 6)
+        self.assertEqual(self.r1.area(), 2)
+        self.assertEqual(self.r2.area(), 18)
 
     def test_area_args(self):
         """ Testing for too many arguments """
@@ -154,23 +175,18 @@ class TestRectangle(unittest.TestCase):
 
     def test_update_method_with_args(self):
         """ Tests the update method with args """
-        r1 = Rectangle(5, 5, 5, 5, 88)
-        r1.update(55, 8, 9, 10, 11)
-        self.assertEqual(r1.id, 55)
-        self.assertEqual(r1.width, 8)
-        self.assertEqual(r1.height, 9)
-        self.assertEqual(r1.x, 10)
-        self.assertEqual(r1.y, 11)
+        self.r1.update(55, 8, 9, 10, 11)
+        self.assertEqual(self.r1.id, 55)
+        self.assertEqual(self.r1.width, 8)
+        self.assertEqual(self.r1.height, 9)
+        self.assertEqual(self.r1.x, 10)
+        self.assertEqual(self.r1.y, 11)
 
     def test_update_method_kwargs(self):
         """ Tests the udpate method with kwargs """
-        r1 = Rectangle(5, 5, 5, 5, 88)
-        r1.update(x=10, height=10)
-        self.assertEqual(r1.id, 88)
-        self.assertEqual(r1.width, 5)
-        self.assertEqual(r1.height, 10)
-        self.assertEqual(r1.x, 10)
-        self.assertEqual(r1.y, 5)
-
-if __name__ == "__main__":
-    unittest.main()
+        self.r1.update(x=10, height=10, id=88, width=5, y=5)
+        self.assertEqual(self.r1.id, 88)
+        self.assertEqual(self.r1.width, 5)
+        self.assertEqual(self.r1.height, 10)
+        self.assertEqual(self.r1.x, 10)
+        self.assertEqual(self.r1.y, 5)
