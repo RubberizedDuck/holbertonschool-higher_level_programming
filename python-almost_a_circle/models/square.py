@@ -45,17 +45,21 @@ class Square(Rectangle):
                     self.x = arg
                 if count == 3:
                     self.y = arg
-        if kwargs is not None:
-            for key, value in kwargs.items():
-                if key == "id":
-                    self.id = value
-                if key == "size":
-                    self.size = value
-                if key == "x":
-                    self.x = value
-                if key == "y":
-                    self.y = value
+        else:
+            if "id" in kwargs:
+                self.id = kwargs["id"]
+            if "size" in kwargs:
+                self.size = kwargs["size"]
+            if "x" in kwargs:
+                self.x = kwargs["x"]
+            if "y" in kwargs:
+                self.y = kwargs["y"]
 
     def to_dictionary(self):
-        """ Returns the dict rep of Square """
-        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
+        """ returns dicitonary of current attributes"""
+        d = {}
+        d["id"] = self.id
+        d["size"] = self.size
+        d["x"] = self.x
+        d["y"] = self.y
+        return d
