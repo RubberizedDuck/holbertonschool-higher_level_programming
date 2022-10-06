@@ -212,21 +212,23 @@ class TestRectangle(unittest.TestCase):
             {"id": 1, "width": 1, "height": 2, "x": 2, "y": 3}, d1)
         self.assertTrue(type(d1) is dict)
 
-#    def test_display_without_xy(self):
-#        """ Test to see if display method works without x & y """
-#        with StringIO() as buf, redirect_stdout(buf):
-#            self.r1.display()
-#            output = buf.getvalue()
-#            self.assertEqual(output, "#\n")
-#        with StringIO() as buf, redirect_stdout(buf):
-#            self.r2.display()
-#            output = buf.getvalue()
-#            self.assertEqual(output, ("#" * 4 + "\n") * 5)
+    def test_basic_display(self):
+        """ Test without x & y """
+        with StringIO() as buf, redirect_stdout(buf):
+            self.r1.display()
+            output = buf.getvalue()
+            self.assertEqual(output, "#\n#\n")
 
     def test_display_too_many_args(self):
         """Test display with too many args"""
         with self.assertRaises(TypeError):
             self.r1.display(1)
+
+    def test_save_to_file(self):
+        """ Test save to JSON method """
+        Rectangle.save_to_file([self.r3])
+        with open("Rectangle.json", "r") as f:
+            self.assertTrue(len(f.read()) > 1)
 
 #    def test_xy_display(self):
 #        """Test display with x & y"""
