@@ -1,4 +1,4 @@
--- Task 3: Always a name
+-- Task 7: Cities table
 -- Creates table 'hbtn_0d_usa'
 CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
 
