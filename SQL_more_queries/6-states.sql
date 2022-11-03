@@ -1,4 +1,4 @@
--- Task 3: Always a name
+-- Task 6: States table
 -- Creates table 'hbtn_0d_usa'
 CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
 
