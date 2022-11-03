@@ -1,6 +1,6 @@
 -- Task 9: Full creation
 -- Script to create table 'second_table' and add multiple rows of data
-CREATE TABLE second_table (
+CREATE TABLE IF NOT EXISTS second_table (
        id int,
        name VARCHAR(256),
        score int
