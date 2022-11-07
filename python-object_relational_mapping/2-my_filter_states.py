@@ -12,9 +12,9 @@ if __name__ == "__main__":
     cur = dbConnect.cursor()
     usr_input = argv[4]
     cur.execute(
-        "SELECT * FROM states\
-        WHERE name LIKE BINARY '{}'\
-        ORDER BY id ASC".format(usr_input))
+        f"SELECT * FROM states\
+        WHERE name LIKE BINARY '{usr_input}'\
+        ORDER BY id ASC")
     query_res = cur.fetchall()
     for row in query_res:
         print(row)
