@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """
+This module is designed to return the first state
+in the database
 """
 
 from sys import argv
