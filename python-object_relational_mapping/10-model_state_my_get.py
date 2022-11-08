@@ -21,6 +21,6 @@ if __name__ == "__main__":
     session = Session()
     state = session.query(State).filter(State.name.like(user_input)).first()
     if not state:
-        print('Not Found')
+        print('Not found')
     else:
         print(f'{state.id}')
