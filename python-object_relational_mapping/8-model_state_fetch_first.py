@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """
+This module is designed to return the first state
+in the database
 """
 
 from sys import argv
@@ -18,6 +20,6 @@ if __name__ == "__main__":
     session = Session()
     state = session.query(State).first()
     if not state:
-        print()
+        print('Nothing')
     else:
         print(f'{state.id}: {state.name}')
