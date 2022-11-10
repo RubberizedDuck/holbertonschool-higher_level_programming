@@ -17,9 +17,9 @@ if __name__ == "__main__":
         pool_pre_ping=True
     )
     Session = sessionmaker(bind=engine)
-    with Session.begin() as session:
-        delete_states = session.query(State).filter(State.name.like('%a%'))
-        for match in delete_states:
-            session.delete(match)
-        session.commit()
-        session.close()
+    session = Session()
+    delete_states = session.query(State).filter(State.name.like('%a%'))
+    for match in delete_states:
+        session.delete(match)
+    session.commit()
+    session.close()
