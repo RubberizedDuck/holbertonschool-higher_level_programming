@@ -5,7 +5,7 @@ if (myNum) {
   let x = 0;
   while (x !== myNum) {
     if (myNum < 0) {
-      break
+      break;
     } else {
       console.log('C is fun');
       x++;
