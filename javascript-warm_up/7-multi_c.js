@@ -1,8 +1,6 @@
 #!/usr/bin/node
 const myNum = Number(process.argv[2]);
-if (foo bar) {
-  
-}
+
 if (myNum) {
   let x = 0;
   while (x !== myNum) {
